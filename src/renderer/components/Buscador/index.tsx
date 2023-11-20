@@ -1,5 +1,6 @@
 import { CgSearch } from 'react-icons/cg';
-import './Buscador.style.css';
+import React from 'react';
+import './Buscador.css';
 
 interface Props {
     busca: string,

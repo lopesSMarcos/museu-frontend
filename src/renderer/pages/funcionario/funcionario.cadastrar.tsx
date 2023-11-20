@@ -100,11 +100,11 @@ export default function CadastrarFuncionario() {
 
     await api
       .post('/funcionarios/novo', funcionario)
-      .then((data) => {
+      .then((data: any) => {
         navegar('/funcionarios');
         toast.success('Funcionario cadastrado com sucesso!');
       })
-      .catch((err) => {
+      .catch((err: any) => {
         toast.error('Funcionario já existente ou campos inválidos!');
       });
   }

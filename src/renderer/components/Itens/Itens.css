@@ -1,0 +1,20 @@
+.itens {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: relative;
+    top: 9rem;
+    align-items: flex-start;
+    margin-left: 20%;
+}
+.list-funcionarios {
+    flex-direction: column;
+    position: relative;
+    top: 9rem;
+    margin-left: 25%;
+    margin-right: 25%;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }

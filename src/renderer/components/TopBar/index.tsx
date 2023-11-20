@@ -1,19 +1,34 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import iconUnipampa from 'assets/icons/Museum.png';
 import './index.css';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Button from '../Button';
 
 export default function TopBar() {
+  const navegar = useNavigate();
+
+  const handleClick = () => {
+    localStorage.removeItem('token');
+    navegar('/');
+  };
+
   return (
     <div className="top-nav">
       <div className="top-nav-left-content">
         <div>
           <a href="" className="a" id="paginitial">
-            Página Inicial
+            <Link to={'/home'}>Página Inicial</Link>
           </a>
         </div>
         <div>
           <a href="" className="a">
-            Gerenciar Museu
+            <Link to={'/funcionarios'}>Gerenciar Museu</Link>
+          </a>
+        </div>
+        <div>
+          <a href="" className="a">
+            <Link to={'/ingressos'}>Ingressos</Link>
           </a>
         </div>
       </div>
@@ -23,12 +38,12 @@ export default function TopBar() {
       <div className="top-nav-right-content">
         <div>
           <a href="" className="a">
-            Configurações
+            Perfil
           </a>
         </div>
         <div>
           <a href="" className="a">
-            Perfil
+            <Button onClick={handleClick}>Desconectar</Button>
           </a>
         </div>
       </div>

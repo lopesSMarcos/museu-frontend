@@ -109,12 +109,12 @@ export default function EditarFuncionario() {
         // Swal.fire('Funcionario inativado!', '', 'success');
         await api
           .delete(`/funcionarios/${id}`)
-          .then((data) => {
+          .then((data: any) => {
             navegar('/funcionarios');
             toast.success('Funcionario inativado com sucesso!');
             console.log(funcionario);
           })
-          .catch((err) => {
+          .catch((err: any) => {
             toast.error('Não foi possível inativar Funcionario.');
           });
         navegar('/funcionarios');
@@ -139,11 +139,11 @@ export default function EditarFuncionario() {
       if (result.isConfirmed) {
         await api
           .put(`/funcionarios/${id}`, funcionario)
-          .then((data) => {
+          .then((data: any) => {
             navegar('/funcionarios');
             toast.success('Funcionario editado com sucesso!');
           })
-          .catch((err) => {
+          .catch((err: any) => {
             toast.error('Não foi possível aplicar alterações ao Funcionario.');
           });
         navegar('/funcionarios');
@@ -156,11 +156,11 @@ export default function EditarFuncionario() {
     // Faz uma chamada para a API para obter dados de funcionários
     api
       .get(`/funcionarios/${id}`)
-      .then((response) => {
+      .then((response: any) => {
         // Atualiza o estado com os dados recebidos da API
         setFuncionario(response.data);
       })
-      .catch((error) => {
+      .catch((error: any) => {
         console.error('Erro ao buscar dados:', error);
       });
   }, []);

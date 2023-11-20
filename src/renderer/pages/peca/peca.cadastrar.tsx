@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { FormEvent, useState } from 'react';
 import { toast } from 'react-toastify';
 import { api } from '../../api/api';
+import './peca.css'
 
 type TipoPeca = {
   nome: string;
@@ -51,7 +52,7 @@ export default function CadastrarPeca() {
           'Todos os dados preenchidos foram descartados.',
           'success',
         );
-        navegar('/divisao');
+        navegar('/pecas');
       } else if (result.dismiss === Swal.DismissReason.cancel) {
       }
     });
@@ -64,11 +65,11 @@ export default function CadastrarPeca() {
 
     await api
       .post('/pecas/criar', peca)
-      .then((data) => {
+      .then((data: any) => {
         navegar('/pecas');
         toast.success('Peça cadastrada com sucesso!');
       })
-      .catch((err) => {
+      .catch((err: any) => {
         toast.error('Peça já existente ou campos inválidos!');
       });
   }

@@ -182,3 +182,37 @@ body, html {
 .cancel-btn2:active {
   background-color: #4d4d4d;
 }
+
+
+.viagenspesq {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.options-pages {
+  font-family:'Montserrat', sans-serif;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: white;
+  display: flex;
+  align-self: center;
+  position: relative;
+  top: 5rem;
+  height: 4.5rem;
+  align-items: center;
+  font-weight: bold;
+  gap: 40%;
+  padding-left: 3rem;
+  border-radius: 8px;
+}
+
+.div-btn {
+  display: flex;
+  width: 50%;
+  flex-direction: row;
+  gap: 300px;
+  position: relative;
+  right: 5%;
+  align-items: self-start;
+}

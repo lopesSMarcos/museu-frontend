@@ -21,7 +21,7 @@ export default function Login() {
   const navegar = useNavigate();
 
   const [usuario, setUsuario] = useState<TipoLogin>({
-    login: 'pesquisador@admin.com',
+    login: 'pesquisador26@admin.com',
     senha: '123456',
   });
 
@@ -39,7 +39,7 @@ export default function Login() {
       .then(({ data: { token } }: RespostaAPI) => {
         localStorage.setItem('token', token);
         toast.success('Login efetuado com sucesso!');
-        navegar('/funcionarios');
+        navegar('/home');
       })
       .catch((err) => {
         toast.error(err.response.data.message);

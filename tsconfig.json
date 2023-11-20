@@ -1,20 +1,18 @@
 {
   "compilerOptions": {
-    "jsx": "react",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
+    "incremental": true,
+    "target": "es2022",
     "module": "commonjs",
-    "noImplicitAny": true,
+    "lib": ["dom", "es2022"],
+    "jsx": "react-jsx",
+    "strict": true,
     "sourceMap": true,
-    "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-      "*": [
-        "node_modules/*"
-      ]
-    }
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "outDir": ".erb/dll"
   },
-  "include": [
-    "src/**/*"
-  ]
+  "exclude": ["test", "release/build", "release/app/dist", ".erb/dll"]
 }
