@@ -1,0 +1,147 @@
+
+.section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 100px;
+    align-items: center;
+}
+
+.section h3 {
+    font-size: 50px;
+    align-items: center;
+    font-weight: 600;
+    border-bottom: 2px solid #6e7bf41f;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.nav {
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    gap: 100px
+}
+
+.nav button {
+    border: 2px solid #6e7bf41f;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.forms {
+    display: flex;
+    align-self: center;
+    margin-left: 300px;
+    flex-direction: column;
+    height: 75%;
+    width: 60%;
+    align-items: center;
+    margin-top: 120px;
+    margin-bottom: 150px;
+    max-width: calc(100% - 20px);
+    gap: 20px;
+}
+
+.header {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header h2 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.headerButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.headerButtons button {
+    border: 2px solid #6e7bf41f;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+.headerButtons button:hover {
+    background-color: #6e7bf41f;
+    color: #fff;
+}
+
+.contentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.firstcontent {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.left label {
+    display: flex;
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid #6e7bf41f;
+    height: 35px;
+    justify-content: center;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rightlabel {
+    display: flex;
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid #6e7bf41f;
+    height: 35px;
+    justify-content: center;
+}
+
+.right input[type='file'] {
+    display: none;
+}
+
+.rightinputlabel {
+    display: flex;
+    font-size: 20px;
+    font-weight: 600;
+    border: 2px solid #a5a5a51f;
+    padding: 0 20px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+

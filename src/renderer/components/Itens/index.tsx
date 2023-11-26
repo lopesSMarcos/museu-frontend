@@ -31,9 +31,9 @@ export default function Itens(props: Readonly<IProps>) {
 
   return (
     <div className="itens">
-      {lista.map((item: IItem) => (
+      {data && lista.map((item: IItem) => (
         <Item
-        key={item.id}
+          key={item.id}
           id={item.id}
           nome={item.nome}
           descricao={item.descricao}

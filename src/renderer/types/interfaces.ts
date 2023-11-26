@@ -28,3 +28,14 @@ interface Endereco {
     estado?: string;
     cep?: string;
 }
+
+export interface IUser {
+    login?: string;
+    token?: string;
+    roles?: string[];
+}
+
+export interface IContext extends IUser {
+    authenticate: (email: string, password: string) => Promise<void>;
+    logout: () => void;
+}

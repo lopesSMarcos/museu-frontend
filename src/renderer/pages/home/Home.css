@@ -1,11 +1,6 @@
-* {
-  box-sizing: border-box;
-}
 
-body, html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+.section {
+  width: 100% ;
 }
 
 .boxHome {
@@ -17,12 +12,12 @@ body, html {
   height: 56vh;
   width: 90%;
   margin: 5% auto;
-  margin-top: 10px;
+  margin-top: 100px;
   border-radius: 2.5em;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  /* position: relative; */
 }
 
 .boxHome .title {

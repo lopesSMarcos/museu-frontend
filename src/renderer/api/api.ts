@@ -1,4 +1,5 @@
 import axios, { AxiosError } from 'axios';
+import { getUserLocalStorage } from '../context/AuthProvider/utils';
 
 const setup = () => {
   const api = axios.create({
@@ -26,10 +27,10 @@ const setup = () => {
    * linguagem no header da requisição.
    */
   api.interceptors.request.use((config) => {
-    const token = localStorage.getItem('token');
+    const user = getUserLocalStorage();
 
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+    if (user?.token) {
+      config.headers.Authorization = `Bearer ${user?.token}`;
     }
     return config;
   });

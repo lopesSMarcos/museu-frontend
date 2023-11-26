@@ -41,8 +41,8 @@ export default function Home() {
   // };
 
   return (
-    <div>
-      <TopBar />
+    <div className='section'>
+      {/* <TopBar /> */}
       <MuseumInitial />
       <Sections />
       <Divisions />

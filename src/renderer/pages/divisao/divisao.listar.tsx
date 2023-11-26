@@ -3,7 +3,7 @@ import Buscador from '../../components/Buscador';
 import TopBar from '../../components/TopBar';
 import Itens from '../../components/Itens';
 import './divisao.css';
-import { getDivisao } from '../../utils/utils';
+import { getDivisao } from '../../context/AuthProvider/utils';
 
 export default function ListarDivisao() {
   const [data, setData] = useState([]);

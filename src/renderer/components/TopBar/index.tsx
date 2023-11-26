@@ -1,20 +1,19 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+
 import iconUnipampa from 'assets/icons/Museum.png';
 import './index.css';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
 import Button from '../Button';
+import { setUserLocalStorage } from '../../context/AuthProvider/utils';
 
 export default function TopBar() {
-  const navegar = useNavigate();
 
   const handleClick = () => {
-    localStorage.removeItem('token');
-    navegar('/');
+    setUserLocalStorage(null);
+    redirect('/');
   };
 
   return (
-    <div className="top-nav">
+    <nav className="top-nav">
       <div className="top-nav-left-content">
         <div>
           <a href="" className="a" id="paginitial">
@@ -47,6 +46,6 @@ export default function TopBar() {
           </a>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }

@@ -1,24 +1,21 @@
 import Button from '../../components/ButtonPassword';
-import buttonEye from 'assets/icons/icon-eye.png';
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import './Login.style.css';
 import { useNavigate } from 'react-router-dom';
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import { toast } from 'react-toastify';
-import { api } from '../../api/api';
+import { useAuth } from '../../context/AuthProvider/useAuth';
 
 type TipoLogin = {
   login: string;
   senha: string;
 };
 
-type RespostaAPI = {
-  data: {
-    token: string;
-  };
-};
 
 export default function Login() {
   const navegar = useNavigate();
+  const auth = useAuth();
+  const [ visible, setVisible ] = useState(false);
 
   const [usuario, setUsuario] = useState<TipoLogin>({
     login: 'pesquisador26@admin.com',
@@ -29,21 +26,27 @@ export default function Login() {
     setUsuario({ ...usuario, [fieldName]: value });
   };
 
-  async function handleLogin(e: FormEvent) {
+  async function handleLogin(e: SyntheticEvent) {
     e.preventDefault();
+
+    const target = e.target as typeof e.target & {
+      login: { value: string };
+      senha: { value: string };
+    };
+
+    const email = target.login.value;
+    const senha = target.senha.value;
 
     console.log(usuario);
 
-    await api
-      .post('/login', usuario)
-      .then(({ data: { token } }: RespostaAPI) => {
-        localStorage.setItem('token', token);
-        toast.success('Login efetuado com sucesso!');
-        navegar('/home');
-      })
-      .catch((err) => {
-        toast.error(err.response.data.message);
-      });
+    try {
+      await auth.authenticate(email, senha);
+      toast.success('Login efetuado com sucesso!');
+      navegar('/home');
+    } catch(err: any) {
+      toast.error(err.response.data.message);
+    }
+
   }
 
   return (
@@ -54,27 +57,32 @@ export default function Login() {
             <h1 className="title">Entrar</h1>
             <div id="msg" />
             <input
-              type="text"
+              type="email"
               className="input-text"
-              id="username"
+              name='login'
               value={usuario.login}
+              id="username"
               onChange={(e) => handleChange('login', e.target.value)}
               placeholder="Nome do usuário"
+              required
             />
             <div className="relative">
               <input
-                type="password"
+                type={visible ? 'text' : 'password'}
                 className="input-password pr-10 w-full"
                 id="password"
-                value={usuario.senha}
                 onChange={(e) => handleChange('senha', e.target.value)}
+                name='senha'
+                value={usuario.senha}
                 placeholder="Senha"
+                required
               />
               <Button
                 className="rounded-full absolute top-0 right-0"
                 id="show-password"
                 aria-label="Mostrar Senha"
-                icon={<img src={buttonEye} alt="" />}
+                onClick={() => setVisible(!visible)}
+                icon={visible ? <FaRegEyeSlash size={22}/> : <FaRegEye size={22}/>}
               />
             </div>
             <input

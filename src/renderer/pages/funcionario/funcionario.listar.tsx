@@ -4,7 +4,7 @@ import { api } from '../../api/api';
 import { useNavigate } from 'react-router-dom';
 import Itens from '../../components/Itens';
 import Buscador from '../../components/Buscador';
-import { getFuncionario } from '../../utils/utils';
+import { getFuncionario } from '../../context/AuthProvider/utils';
 
 export default function ListarFuncionario() {
   // Inicializa o estado com um objeto contendo uma propriedade 'content' que é um array de Funcionario
