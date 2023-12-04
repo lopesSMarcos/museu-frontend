@@ -6,30 +6,22 @@ import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 
 interface Props {
     option: number | null;
-    setOption: React.Dispatch<React.SetStateAction<number | null>>
+    setOption: React.Dispatch<React.SetStateAction<number | null>>;
+    data: any[];
 }
 
-type ICategoria = {
-    id: number;
-    nome: string;
-    preco: number;
-}
 
-export default function Option({ option, setOption } : Readonly<Props>) {
+
+export default function Option({ option, setOption, data } : Readonly<Props>) {
     const [ aberto, setAberto ] = useState(false);
-    const [ categorias, setCategorias ] = useState<ICategoria[]>();
-
-    const fetchApi = async () => {
-        const request = await getCategoriaIngressos();
-        setCategorias(request.content);
-    }
     
-    const nomeOption = option && categorias?.find((opcao: ICategoria) => opcao.id === option)?.nome;
+    
+    const nomeOption = option && data?.find((opcao: any) => opcao.id === option)?.nome;
 
     
     useEffect(() => {
-        fetchApi();
-    },[0])
+        
+    },[option])
 
 
     return (
@@ -47,7 +39,7 @@ export default function Option({ option, setOption } : Readonly<Props>) {
         [styles.ordenador__options]: true,
         [styles['ordenador__options--ativo']]: aberto
       })}>
-        {categorias?.map((opcao: ICategoria) => (
+        {data?.map((opcao: any) => (
             <div
                 className={styles.ordenador__option}
                 key={opcao.id}

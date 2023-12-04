@@ -3,6 +3,7 @@ export interface IItem {
     nome: string;
     descricao: string;
     type: string;
+    buttons?: any;
 }
 
 export interface IFuncionario {

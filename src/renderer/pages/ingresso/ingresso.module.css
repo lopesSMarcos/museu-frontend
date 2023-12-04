@@ -85,20 +85,25 @@
 
 .contentForm {
     display: flex;
+    width: 100%;
     flex-direction: column;
-    gap: 20px;
     align-items: center;
 }
 
 .firstcontent {
     display: flex;
-    flex-direction: row;
-    gap: 100px;
+    flex-direction: column;
+    gap: 60px;
+    height: 80%;
+    width: 50%;
+    overflow-y: scroll;
+    border-bottom: 2px solid #6e7bf41f;
 }
 
 .left {
     display: flex;
     flex-direction: column;
+    weight: 50%;
     gap: 10px;
 }
 
@@ -134,14 +139,37 @@
     display: flex;
     font-size: 20px;
     font-weight: 600;
-    border: 2px solid #a5a5a51f;
+    border: 2px solid rgb(185, 178, 178);
     padding: 0 20px;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
     height: 40px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 }
 
+.center {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.center label {
+    width: 100%;
+    display: flex;
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid #6e7bf41f;
+    height: 35px;
+    justify-content: center;
+}
+
+.pagamentos {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 100px 150px;
+    gap: 10px;
+}
 

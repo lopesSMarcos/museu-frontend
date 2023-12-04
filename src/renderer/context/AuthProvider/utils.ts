@@ -111,3 +111,67 @@ export function getUserLocalStorage() {
 
     return user ? JSON.parse(user) : null;
 }
+
+
+export async function getInspecao(id?: number) {
+    try {
+        if(id) {
+            const request = await api.get(`inspecao/${id}`);
+
+            return request;
+        } else {
+            const request = await api.get(`inspecao`);
+
+            return request.data;
+        }
+    } catch(e:any) {
+        let result = (e as Error).message;
+        console.log(result);
+    }
+}
+
+export async function postInspecao(params: any) {
+    try {
+        const request = await api.post(`inspecao/nova`, params);
+
+        return request;
+    } catch (e) {
+        let result = (e as Error).message;
+
+        console.log(result);
+    }
+}
+
+export async function getExposicoes(id?: number) {
+    try {
+        if(id) {
+            const request = await api.get(`exposicao/${id}`);
+
+            return request;
+        } else {
+            const request = await api.get(`exposicao`);
+
+            return request.data;
+        }
+    } catch(e:any) {
+        let result = (e as Error).message;
+        console.log(result);
+    }
+}
+
+export async function getPecas(id?: number) {
+    try {
+        if(id) {
+            const request = await api.get(`pecas/${id}`);
+
+            return request;
+        } else {
+            const request = await api.get(`pecas`);
+
+            return request.data;
+        }
+    } catch(e:any) {
+        let result = (e as Error).message;
+        console.log(result);
+    }
+}

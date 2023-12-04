@@ -7,12 +7,13 @@ interface IProps {
   busca: string;
   data: any;
   type: string;
+  buttons?: any;
 }
 
 
 export default function Itens(props: Readonly<IProps>) {
   const [lista, setLista] = useState([]);
-  const { busca, data, type } = props;
+  const { busca, data, type, buttons } = props;
 
   function testaBusca(nome: string) {
     const regex = new RegExp(busca, 'i');
@@ -38,6 +39,7 @@ export default function Itens(props: Readonly<IProps>) {
           nome={item.nome}
           descricao={item.descricao}
           type={type}
+          buttons={buttons}
         />
       ))}
     </div>

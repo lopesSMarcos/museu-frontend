@@ -1,20 +1,21 @@
+
+
 import { useEffect, useState } from "react";
 import Buscador from "../../components/Buscador";
 import Itens from "../../components/Itens";
-import { getIngresso } from "../../context/AuthProvider/utils";
+import { getExposicoes, getIngresso } from "../../context/AuthProvider/utils";
 import styles from './ingresso.module.css';
 import { useNavigate } from "react-router-dom";
 
 
 
-export default function ListarIngressos() {
+export default function Exposicoes() {
     const [busca, setBusca] = useState('');
     const [data, setData] = useState([]);
     const navigate = useNavigate();
-    const [limite, setLimite] = useState(0);
 
     const fetchApi = async () => {
-        const request = await getIngresso();
+        const request = await getExposicoes();
         setData(request?.data);
     }
 
@@ -24,19 +25,17 @@ export default function ListarIngressos() {
 
     return (
         <div className={styles.section}>
-            <h3>Área de Ingressos</h3>
-            <p>{limite}</p>
+            <h3>Área de Exposicoes</h3>
             <div>
                 <div className={styles.nav}>
                     <div className={styles.buttons}>
-                        <button onClick={() => navigate('/ingressos/novo')}>Novo Ingresso</button>
-                        <button onClick={() => navigate('/categoria')}>Cadastrar Categoria</button>
+                        <button onClick={() => navigate('/exposicoes/novo')}>Nova Exposição</button>
                     </div>
                     
                     <Buscador busca={busca} setBusca={setBusca} />
                 </div>
                 
-                <Itens busca={busca} data={data} type="ingressos"/>
+                <Itens busca={busca} data={data} type="exposicoes"/>
                 
             </div>
         </div>

@@ -4,8 +4,11 @@ import './index.css';
 import { Link, redirect } from 'react-router-dom';
 import Button from '../Button';
 import { setUserLocalStorage } from '../../context/AuthProvider/utils';
+import { useAuth } from '../../context/AuthProvider/useAuth';
 
 export default function TopBar() {
+
+  const auth = useAuth();
 
   const handleClick = () => {
     setUserLocalStorage(null);
@@ -13,6 +16,7 @@ export default function TopBar() {
   };
 
   return (
+    auth.login && 
     <nav className="top-nav">
       <div className="top-nav-left-content">
         <div>

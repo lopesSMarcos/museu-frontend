@@ -37,7 +37,6 @@ export default function Login() {
     const email = target.login.value;
     const senha = target.senha.value;
 
-    console.log(usuario);
 
     try {
       await auth.authenticate(email, senha);
@@ -50,6 +49,7 @@ export default function Login() {
   }
 
   return (
+    auth.login ? navegar('/home') : 
     <form onSubmit={(e) => handleLogin(e)} className="w-full">
       <div className="box">
         <div className="login-area">
