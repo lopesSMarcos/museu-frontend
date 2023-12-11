@@ -41,7 +41,10 @@ export default function Login() {
     try {
       await auth.authenticate(email, senha);
       toast.success('Login efetuado com sucesso!');
-      navegar('/home');
+      if(auth.roles) {
+        auth.roles.includes('TOTEM') ? navegar('/totem') : navegar('/home');
+      }
+      
     } catch(err: any) {
       toast.error(err.response.data.message);
     }

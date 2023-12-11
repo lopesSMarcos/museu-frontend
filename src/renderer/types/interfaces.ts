@@ -1,9 +1,27 @@
+import { SetStateAction } from "react";
+
 export interface IItem {
     id: number;
     nome: string;
     descricao: string;
-    type: string;
+    type?: string;
     buttons?: any;
+}
+
+export interface IPaginationHook {
+    totalCount: number;
+    currentPage: number;
+    pageSize: number;
+    onPageChange?: (page: number) => void;
+    siblingCount?: number;
+}
+
+export interface IPagination{
+    totalCount: number;
+    currentPage: number;
+    pageSize: number;
+    onPageChange: (page: number | string) => void;
+    siblingCount?: number;
 }
 
 export interface IFuncionario {

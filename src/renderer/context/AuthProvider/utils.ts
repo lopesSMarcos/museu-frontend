@@ -26,11 +26,11 @@ export async function getFuncionario(id?: number) {
         if(id) {
             const request = await api.get(`funcionarios/${id}`);
 
-            return request;
+            return request.data;
         } else {
             const request = await api.get(`funcionarios`);
 
-            return request
+            return request.data;
         }
     } catch (e) {
         let result = (e as Error).message;

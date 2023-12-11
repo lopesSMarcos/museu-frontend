@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import TopBar from '../../components/TopBar';
-import { api } from '../../api/api';
 import { useNavigate } from 'react-router-dom';
 import Itens from '../../components/Itens';
 import Buscador from '../../components/Buscador';
 import { getFuncionario } from '../../context/AuthProvider/utils';
+import styles from './funcionario.module.css';
 
 export default function ListarFuncionario() {
-  // Inicializa o estado com um objeto contendo uma propriedade 'content' que é um array de Funcionario
+  
   const [data, setData] = useState<{ content: Funcionario[] }>({ content: [] });
   const [numberOfFuncionarios, setNumberOfFuncionarios] = useState(0);
   const [busca, setBusca] = useState('');
@@ -19,8 +18,10 @@ export default function ListarFuncionario() {
 
   const fetchApi = async () => {
     const request = await getFuncionario();
-    setData(request?.data);
-    setNumberOfFuncionarios(request?.data.content.length);
+
+    setData(request);
+
+    setNumberOfFuncionarios(request?.content.length);
   }
 
   useEffect(() => {
@@ -28,25 +29,21 @@ export default function ListarFuncionario() {
   }, []);
 
   return (
-    <div>
-      <TopBar />
-
-      <div className="options-pages">
+    <div className={styles.section}>
+      <div className={styles.header}>
         <div>
-          <h3>Funcionários</h3>
+          <h1>Funcionários</h1>
           {/* <Buscador busca={busca} setBusca={setBusca}/> */}
-          <div id="qnt-funcionarios" className="sub-info">
+          <label>
             {numberOfFuncionarios} funcionários
-          </div>
+          </label>
         </div>
-        <div className="viagenspesq">
-          <div>Viagens Pesquisadores</div>
-          <div className="sub-info">18 viagens</div>
+        <div>
+          <h1>Viagens Pesquisadores</h1>
+          <label>18 viagens</label>
         </div>
       </div>
-
-      <div className="div-btn">
-      
+      <div className={styles.divbusca}>
         <button
           id="btn-adc-funcionario"
           className="btn-adc-funcionario"
@@ -56,7 +53,8 @@ export default function ListarFuncionario() {
         </button>
         <Buscador busca={busca} setBusca={setBusca}/>
       </div>
-        <Itens busca={busca} data={data}  type={'funcionarios'}/>      
+      <hr />
+        {Array.isArray(data.content) && <Itens busca={busca} data={data.content}  type={'funcionarios'}/>}      
     </div>
   );
 }

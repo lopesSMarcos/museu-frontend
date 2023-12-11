@@ -1,6 +1,5 @@
 import { Form, useNavigate } from 'react-router-dom';
 import TopBar from '../../components/TopBar';
-import './funcionario.css';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { api } from '../../api/api';
 import { toast } from 'react-toastify';
